@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <john-element id="john" ontest="console.log('tada');" test="100"></john-element>
+
+    <script type="module">
+        import { test } from  '/dist/bundle.js'
+        console.log(test);
+    </script>
+    <div id="output"></div>
+    <script>
+        document.querySelector("#john").addEventListener("test", () => {
+            console.log("Someone has changed the timer..")
+        });
+        setInterval(()=>{
+            console.log("refreshTimer1")
+            document.querySelector("#john").refreshTimer1(++document.querySelector("#john").test);
+        }, 100000);
+    </script>
+   
+</body>
+</html>
